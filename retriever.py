@@ -25,3 +25,5 @@ def retrieve_candidates(query: str, max_results: int = 50) -> list[PaperCandidat
             published=result.published.strftime("%Y-%m-%d"),
         ))
     return candidates
+
+print(retrieve_candidates("RAG", max_results=5))
