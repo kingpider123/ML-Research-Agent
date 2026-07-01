@@ -85,5 +85,5 @@ def extract_all(papers: list[PaperCandidate]) -> list[PaperExtraction]:
             continue
     return extractions
 
-print("Extracting papers...")
-print(extract_all(rank_candidates("RAG", retrieve_candidates("RAG", max_results=50), top_k=15)))
+# print("Extracting papers...")
+# print(extract_all(rank_candidates("RAG", retrieve_candidates("RAG", max_results=50), top_k=15)))

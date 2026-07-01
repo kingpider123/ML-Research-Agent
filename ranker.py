@@ -20,6 +20,6 @@ def rank_candidates(query: str, candidates: list[PaperCandidate], top_k: int = 1
     ranked = sorted(candidates, key=lambda c: c.relevance_score, reverse=True)
     return ranked[:top_k]
 
-print(rank_candidates("RAG", retrieve_candidates("RAG", max_results=50), top_k=15))
-for c in rank_candidates("RAG", retrieve_candidates("RAG", max_results=50), top_k=15):
-    print(f"  score={c.relevance_score:.3f}  [{c.arxiv_id}] {c.title}")
+# print(rank_candidates("RAG", retrieve_candidates("RAG", max_results=50), top_k=15))
+# for c in rank_candidates("RAG", retrieve_candidates("RAG", max_results=50), top_k=15):
+#     print(f"  score={c.relevance_score:.3f}  [{c.arxiv_id}] {c.title}")

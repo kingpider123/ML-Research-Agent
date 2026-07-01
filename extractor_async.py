@@ -2,9 +2,11 @@ import asyncio
 import json
 from openai import AsyncOpenAI
 from state import PaperCandidate, PaperExtraction
-from extractor import EXTRACTION_FUNCTION
+from extractor import EXTRACTION_TOOL
 from cache import init_cache, get_cached, save_to_cache
+from dotenv import load_dotenv
 
+load_dotenv()  # Load environment variables from .env file
 client = AsyncOpenAI()
 
 # Limit how many requests are in flight at once — protects you from
@@ -16,7 +18,7 @@ async def _extract_paper_async(paper: PaperCandidate, semaphore: asyncio.Semapho
     async with semaphore:
         response = await client.chat.completions.create(
             model="gpt-4o-mini",
-            tools=[EXTRACTION_FUNCTION],
+            tools=[EXTRACTION_TOOL],
             tool_choice={"type": "function", "function": {"name": "record_extraction"}},
             messages=[{
                 "role": "user",

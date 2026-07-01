@@ -26,4 +26,4 @@ def retrieve_candidates(query: str, max_results: int = 50) -> list[PaperCandidat
         ))
     return candidates
 
-print(retrieve_candidates("RAG", max_results=5))
+#print(retrieve_candidates("RAG", max_results=5))
